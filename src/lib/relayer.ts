@@ -10,7 +10,7 @@ export interface RelayerItem {
     network: string;
     network_type: string;
     paused: boolean;
-    policies: any;
+    policies: Record<string, string>;
     system_disabled: boolean;
 }
 

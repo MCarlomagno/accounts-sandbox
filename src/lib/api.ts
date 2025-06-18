@@ -1,7 +1,7 @@
 'use server';
 import { Relayer, RelayerTransactionRequest } from "./relayer";
 
-let relayer = new Relayer({
+const relayer = new Relayer({
     apiKey: process.env.RELAYER_API_KEY!, 
     basePath: process.env.RELAYER_API_URL!
 });

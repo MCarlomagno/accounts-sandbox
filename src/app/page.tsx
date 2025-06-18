@@ -11,8 +11,8 @@ import { Textarea } from '../components/ui/textarea'
 import { useEffect, useState } from 'react';
 import { RelayerItem, RelayerTransactionRequest } from '@/lib/relayer';
 
-let DELEGATE_ADDRESS: `0x${string}` = '0x3832923A34ac8Fd092ed9941B9302006C16D789f';
-let DELEGATION_COST_WEI = 10_000_000_000_000;
+const DELEGATE_ADDRESS: `0x${string}` = '0x3832923A34ac8Fd092ed9941B9302006C16D789f';
+const DELEGATION_COST_WEI = 10_000_000_000_000;
 const ABI = [
   {
     "type": "function",
@@ -38,11 +38,6 @@ export default function Home() {
     setContractAbi(JSON.stringify(ABI));
     listRelayers().then((res) => setRelayers(res.data));
   }, []);
-
-  useEffect(() => {
-    if (relayers.length === 0) return;
-    let relayerId = relayers[0].id;
-  }, [relayers.length]);
 
   const generate = async () => {
     const privateKey = generatePrivateKey();
@@ -127,7 +122,7 @@ export default function Home() {
           <span>1. Generate burner EOA</span>
 
           <p className="text-muted-foreground text-sm">Generate a new burner EOA to use for the self-upgrade. 
-            <br/><br/> ⚠️ It's not persistent if you refresh the page you will need to generate and fund a new one. ⚠️</p>
+            <br/><br/> ⚠️ It&apos;s not persistent if you refresh the page you will need to generate and fund a new one. ⚠️</p>
 
           <div className="flex flex-col gap-2 w-full">
             <Label htmlFor="address">Address</Label>
@@ -148,7 +143,7 @@ export default function Home() {
 
         <span>2. Account Deploy</span>
 
-        <p className="text-muted-foreground text-sm">Select the address of the smart contract to delegate to, it must implement an "initialize" function</p>
+        <p className="text-muted-foreground text-sm">Select the address of the smart contract to delegate to, it must implement an &quot;initialize&quot; function</p>
         <div className="flex flex-col gap-2 w-full">
             <Label htmlFor="addressContract">Contract Address</Label>         
              <div className="flex items-center gap-2 w-full">
